@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Planet | Login</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Patua+One">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Russo+One">
+    <link rel="stylesheet" href="assets/css/anime.css">
+    <link rel="stylesheet" href="assets/css/Header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="assets/css/search.css">
+    <link rel="stylesheet" href="assets/css/Show.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="465260190607-oan0h67vf00hvmnci3jpgeo4k852tjha.apps.googleusercontent.com">
+
+    
+<script src="/socket.io/socket.io.js"></script>
+
+
+</head>
+
+<body style="background-color:#414141;font-family:'Russo One', sans-serif;">
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" style="background-color:rgb(23,23,23);color:rgb(255,255,255);/*box-shadow:5px 10px 5px #303030;*/padding:0;">
+        <div class="container-fluid"><a class="navbar-brand" href="/"><img src="assets/img/icon.png" style="width:40px;margin-right:20px;">Anime Planet</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/random.html" style="color:rgb(255,255,255);">Random</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color:rgb(255,255,255);">New</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color:rgb(255,255,255);">A to Z</a></li>
+                </ul>
+                <div class="form-inline mr-auto">
+                    <div class="form-group"><label for="search-field"><i class="fa fa-search" style="margin-right:10px;"></i></label><input class="form-control search-field" autocomplete="off" type="search" name="search" id="search-field" style="color:#1e1e1e;background-color:#ebebeb;">
+                        <div id="searchListDiv" style="visibility: hidden;">
+                            <ul id="searchList" >
+                                <li>Item 1</li>
+                                <li>Item 2</li>
+                                <li>Item 3</li>
+                                <li>Item 4</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="userInfo" role="button" style="background-color:#0c1c54; padding: 5px 15px 5px 15px; border-radius: 2px; visibility: hidden;">
+                    <span id="user">Username</span> | <span>Bookmarks</span> | <span onclick="signOut();" style = "cursor: pointer;">Sign Out</span>
+                </div>
+                
+                <a id = "loginBtn" class="btn btn-light action-button" role="button" href="#" style="background-color:#0c1c54;">Login</a>
+            </div>
+        </div>
+
+
+        
+    </nav>
+    <!--
+    Login context
+    -->
+    <div style="background-color: #5f5f5f;margin: 100px auto 100px auto; padding: 10px;text-align: center; width: 50%;">
+        
+        <h2>Login</h2>
+        <form>
+            <label for="username">Username:</label><br>
+            <input type="text" id="username"><br>
+            <label for="pwd">Password:</label><br>
+            <input type="password" id="pwd">
+            <br>
+            <input type="checkbox" id="RememberMe">
+            <label style="margin-top: 10px;">Remember Me</label>
+            <br>
+            <div onclick="login();" class="btn btn-light action-button" role="button" style="background-color:#0c1c54;color: #ebebeb; border-radius: 10px;;border-width: 0; margin-top: 10px;">Login</div>
+        </form>
+        
+          <div id="" style="margin-top: 20px; color: rgb(167, 1, 1); visibility: hidden;"><h4>check username or password</h4></div>
+    </div>
+
+    <script src="assets/js/sha256.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="assets/js/setup.js"></script>
+    <script src="assets/js/cookie.js"></script>
+    <script src="assets/js/login.js"></script>
+    
+</body>
+
+</html>

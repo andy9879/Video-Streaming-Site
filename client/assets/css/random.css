@@ -1,0 +1,21 @@
+.randomAnime{
+    background-color:#5f5f5f;
+    width: 100%-100px;
+    margin: 0px 100px 30px 100px;
+    padding: 10px;
+}
+
+.randomAnimeWrap{
+    vertical-align:top;
+}
+
+
+.randomAnime img{
+    vertical-align:top;
+ }
+
+ .randomAnime span{
+    margin-left:20px;
+    display: inline-block; 
+    width: 80%;
+ }
