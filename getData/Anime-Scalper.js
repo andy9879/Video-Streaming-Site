@@ -106,7 +106,7 @@ if(startPage == 0){
 
 
 
-            fs.writeFileSync("animeNames.json", JSON.stringify(anime) + ',', {
+            fs.writeFileSync("./animeNames.json", JSON.stringify(anime) + ',', {
                 encoding: "utf8",
                 flag: 'a+'
             });
