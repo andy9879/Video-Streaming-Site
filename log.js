@@ -2,6 +2,10 @@ var fs = require("fs");
 const compressing = require('compressing');
 //https://www.npmjs.com/package/compressing
 
+if (!fs.existsSync("./logs")){
+    fs.mkdirSync("./logs");
+}
+
 //24 hour interval
 //ToDO
 //Log compretion
