@@ -2,56 +2,55 @@
   /*margin-top:10px;*/
   /*margin-left:5%;*/
   /*margin-right:5%;*/
-  overflow-x:scroll;
-  white-space:nowrap;
-  width:100%;
+  overflow-x: scroll;
+  white-space: nowrap;
+  width: 100%;
   /*background-color:#fff;*/
-  height:350px;
+  height: 350px;
 }
 
 .Show {
-  color:#a6a6a6;
-  display:inline-block;
-  width:200px;
-  background-color:#3a3a3a;
-  margin-right:15px;
-  box-shadow:10px 10px 5px #1b1b1b;
-  overflow:hidden;
+  color: #a6a6a6;
+  display: inline-block;
+  width: 200px;
+  background-color: #3a3a3a;
+  margin-right: 15px;
+  box-shadow: 10px 10px 5px #1b1b1b;
+  overflow: hidden;
 }
 
 .Show img {
-  width:200px;
-  height:283px;
+  width: 200px;
+  height: 283px;
 }
 
 .ShowLists::-webkit-scrollbar-thumb {
-  border:6px solid #9b6a2f;
-  background:#e89a3e;
-  border-radius:12px 12px 12px 12px;
-  margin:0px auto;
+  border: 6px solid #9b6a2f;
+  background: #e89a3e;
+  border-radius: 12px 12px 12px 12px;
+  margin: 0px auto;
 }
 
 ::-webkit-scrollbar {
-  width:10px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background:rgba(255,255,255,0);
+  background: rgba(255, 255, 255, 0);
 }
 
 ::-webkit-scrollbar-thumb {
-  background:#888;
+  background: #888;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background:#555;
+  background: #555;
 }
 
 .ShowLists h1 {
-  margin-left:20px;
+  margin-left: 20px;
 }
 
 .Show a {
-  color:#b7b7b7;
+  color: #b7b7b7;
 }
-

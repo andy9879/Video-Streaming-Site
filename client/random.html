@@ -1,173 +1,306 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anime Planet | Random</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Patua+One">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Russo+One">
-    <link rel="stylesheet" href="assets/css/Header.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
-    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
-    <link rel="stylesheet" href="assets/css/search.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/random.css">
-    <link rel="shortcut icon" href="/assets/img/icon.png" type="image/x-icon">  
-<script src="/socket.io/socket.io.js"></script>
-</head>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Anton"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Bree+Serif"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Merriweather"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Patua+One"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Russo+One"
+    />
+    <link rel="stylesheet" href="assets/css/Header.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css" />
+    <link rel="stylesheet" href="assets/css/search.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/random.css" />
+    <link rel="shortcut icon" href="/assets/img/icon.png" type="image/x-icon" />
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
 
-<body style="background-color:#414141;font-family:'Russo One', sans-serif;">
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" style="background-color:rgb(23,23,23);color:rgb(255,255,255);/*box-shadow:5px 10px 5px #303030;*/padding:0;">
-        <div class="container-fluid"><a class="navbar-brand" href="/"><img src="assets/img/icon.png" style="width:40px;margin-right:20px;">Anime Planet</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/random.html" style="color:rgb(255,255,255);">Random</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color:rgb(255,255,255);">New</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color:rgb(255,255,255);">A to Z</a></li>
+  <body
+    style="
+      background-color: #414141;
+      font-family: &quot;Russo One&quot;, sans-serif;
+    "
+  >
+    <nav
+      class="navbar navbar-light navbar-expand-md navigation-clean-search"
+      style="
+        background-color: rgb(23, 23, 23);
+        color: rgb(255, 255, 255); /*box-shadow:5px 10px 5px #303030;*/
+        padding: 0;
+      "
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"
+          ><img
+            src="assets/img/icon.png"
+            style="width: 40px; margin-right: 20px"
+          />Anime Planet</a
+        ><button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navcol-1"
+        >
+          <span class="sr-only">Toggle navigation</span
+          ><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav">
+            <li class="nav-item" role="presentation">
+              <a
+                class="nav-link"
+                href="/random.html"
+                style="color: rgb(255, 255, 255)"
+                >Random</a
+              >
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" href="#" style="color: rgb(255, 255, 255)"
+                >New</a
+              >
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" href="#" style="color: rgb(255, 255, 255)"
+                >A to Z</a
+              >
+            </li>
+          </ul>
+          <div class="form-inline mr-auto">
+            <div class="form-group">
+              <label for="search-field"
+                ><i class="fa fa-search" style="margin-right: 10px"></i></label
+              ><input
+                class="form-control search-field"
+                autocomplete="off"
+                type="search"
+                name="search"
+                id="search-field"
+                style="color: #1e1e1e; background-color: #ebebeb"
+              />
+              <div id="searchListDiv" style="visibility: hidden">
+                <ul id="searchList">
+                  <li>Item 1</li>
+                  <li>Item 2</li>
+                  <li>Item 3</li>
+                  <li>Item 4</li>
                 </ul>
-                <div class="form-inline mr-auto">
-                    <div class="form-group"><label for="search-field"><i class="fa fa-search" style="margin-right:10px;"></i></label><input class="form-control search-field" autocomplete="off" type="search" name="search" id="search-field" style="color:#1e1e1e;background-color:#ebebeb;">
-                        <div id="searchListDiv" style="visibility: hidden;">
-                            <ul id="searchList" >
-                                <li>Item 1</li>
-                                <li>Item 2</li>
-                                <li>Item 3</li>
-                                <li>Item 4</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div id="userInfo" role="button" style="background-color:#0c1c54; padding: 5px 15px 5px 15px; border-radius: 2px; visibility: hidden;">
-                    <span id="user">Username</span> | <span><a href="bookmarks.html" style="color: #ebebeb;">Bookmarks</a></span> | <span onclick="signOut();" style = "cursor: pointer;">Sign Out</span>
-                </div>
-
-                <a id = "loginBtn" class="btn btn-light action-button" role="button" href="/login.html" style="background-color:#0c1c54;">Login</a>
+              </div>
             </div>
+          </div>
+          <div
+            id="userInfo"
+            role="button"
+            style="
+              background-color: #0c1c54;
+              padding: 5px 15px 5px 15px;
+              border-radius: 2px;
+              visibility: hidden;
+            "
+          >
+            <span id="user">Username</span> |
+            <span
+              ><a href="bookmarks.html" style="color: #ebebeb"
+                >Bookmarks</a
+              ></span
+            >
+            | <span onclick="signOut();" style="cursor: pointer">Sign Out</span>
+          </div>
+
+          <a
+            id="loginBtn"
+            class="btn btn-light action-button"
+            role="button"
+            href="/login.html"
+            style="background-color: #0c1c54"
+            >Login</a
+          >
         </div>
+      </div>
     </nav>
 
-    <div style="text-align: center;margin:50px 100px 30px 100px; padding:20px; background-color:#5f5f5f;">
-        <h4>Genres to include</h4>
-        <label>Action</label>
-        <input id="include-Action" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Adventure</label>
-        <input id="include-Adventure" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Comedy</label>
-        <input id="include-Comedy" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Drama</label>
-        <input id="include-Drama" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Fantasy</label>
-        <input id="include-Fantasy" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Horror</label>
-        <input id="include-Horror" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Mystery</label>
-        <input id="include-Mystery" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Romance</label>
-        <input id="include-Romance" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Sports</label>
-        <input id="include-Sports" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Supernatural</label>
-        <input id="include-Supernatural" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Ecchi</label>
-        <input id="include-Ecchi" type="checkbox">&nbsp;&nbsp;&nbsp;
+    <div
+      style="
+        text-align: center;
+        margin: 50px 100px 30px 100px;
+        padding: 20px;
+        background-color: #5f5f5f;
+      "
+    >
+      <h4>Genres to include</h4>
+      <label>Action</label>
+      <input id="include-Action" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Adventure</label>
+      <input id="include-Adventure" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Comedy</label>
+      <input id="include-Comedy" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Drama</label>
+      <input id="include-Drama" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Fantasy</label>
+      <input id="include-Fantasy" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Horror</label>
+      <input id="include-Horror" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Mystery</label>
+      <input id="include-Mystery" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Romance</label>
+      <input id="include-Romance" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Sports</label>
+      <input id="include-Sports" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Supernatural</label>
+      <input id="include-Supernatural" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Ecchi</label>
+      <input id="include-Ecchi" type="checkbox" />&nbsp;&nbsp;&nbsp;
 
-        <br><br>
+      <br /><br />
 
-        <h4>Genres to exclude</h4>
-        <label>Action</label>
-        <input id="exclude-Action" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Adventure</label>
-        <input id="exclude-Adventure" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Comedy</label>
-        <input id="exclude-Comedy" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Drama</label>
-        <input id="exclude-Drama" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Fantasy</label>
-        <input id="exclude-Fantasy" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Horror</label>
-        <input id="exclude-Horror" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Mystery</label>
-        <input id="exclude-Mystery" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Romance</label>
-        <input id="exclude-Romance" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Sports</label>
-        <input id="exclude-Sports" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Supernatural</label>
-        <input id="exclude-Supernatural" type="checkbox">&nbsp;&nbsp;&nbsp;
-        <label>Ecchi</label>
-        <input id="exclude-Ecchi" type="checkbox">&nbsp;&nbsp;&nbsp;
+      <h4>Genres to exclude</h4>
+      <label>Action</label>
+      <input id="exclude-Action" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Adventure</label>
+      <input id="exclude-Adventure" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Comedy</label>
+      <input id="exclude-Comedy" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Drama</label>
+      <input id="exclude-Drama" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Fantasy</label>
+      <input id="exclude-Fantasy" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Horror</label>
+      <input id="exclude-Horror" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Mystery</label>
+      <input id="exclude-Mystery" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Romance</label>
+      <input id="exclude-Romance" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Sports</label>
+      <input id="exclude-Sports" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Supernatural</label>
+      <input id="exclude-Supernatural" type="checkbox" />&nbsp;&nbsp;&nbsp;
+      <label>Ecchi</label>
+      <input id="exclude-Ecchi" type="checkbox" />&nbsp;&nbsp;&nbsp;
 
-        <br><br>
+      <br /><br />
 
-        <label>Minimum score</label>&nbsp;
-        <select id="minScore">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-        </select>
+      <label>Minimum score</label>&nbsp;
+      <select id="minScore">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+      </select>
 
-        <label>Maximum score</label>&nbsp;
-        <select id="MaxScore" value="9">
-            <option>10</option>
-            <option>9</option>
-            <option>8</option>
-            <option>7</option>
-            <option>6</option>
-            <option>5</option>
-            <option>4</option>
-            <option>3</option>
-            <option>2</option>
-            <option>1</option>
-        </select>
+      <label>Maximum score</label>&nbsp;
+      <select id="MaxScore" value="9">
+        <option>10</option>
+        <option>9</option>
+        <option>8</option>
+        <option>7</option>
+        <option>6</option>
+        <option>5</option>
+        <option>4</option>
+        <option>3</option>
+        <option>2</option>
+        <option>1</option>
+      </select>
 
-        <label>Sort By</label>&nbsp;
-        <select id="sort" value="Random">
-            <option>Random</option>
-            <option>Score</option>
-            <option>Year</option>
-            <option>Alphabetical</option>
-        </select>
+      <label>Sort By</label>&nbsp;
+      <select id="sort" value="Random">
+        <option>Random</option>
+        <option>Score</option>
+        <option>Year</option>
+        <option>Alphabetical</option>
+      </select>
 
-        <label>Ammount Per Page</label>&nbsp;
-        <select id="AmmountPerPage">
-            <option>10</option>
-            <option>25</option>
-            <option>50</option>
-            <option>100</option>
-        </select>
+      <label>Ammount Per Page</label>&nbsp;
+      <select id="AmmountPerPage">
+        <option>10</option>
+        <option>25</option>
+        <option>50</option>
+        <option>100</option>
+      </select>
 
-        <br><br>
+      <br /><br />
 
-        <h3 id="loading">loading</h3>
-        <span id="apply" onClick="GenList()" class="btn btn-light action-button"  style="background-color:#0c1c54;border:none;color:#fff;visibility:hidden">Generate List</span> 
-        &nbsp;&nbsp;&nbsp;
-        <span id="lucky" class="btn btn-light action-button"  style="background-color:#0c1c54;border:none;color:#fff;visibility:hidden">Feeling Lucky</span>
+      <h3 id="loading">loading</h3>
+      <span
+        id="apply"
+        onClick="GenList()"
+        class="btn btn-light action-button"
+        style="
+          background-color: #0c1c54;
+          border: none;
+          color: #fff;
+          visibility: hidden;
+        "
+        >Generate List</span
+      >
+      &nbsp;&nbsp;&nbsp;
+      <span
+        id="lucky"
+        class="btn btn-light action-button"
+        style="
+          background-color: #0c1c54;
+          border: none;
+          color: #fff;
+          visibility: hidden;
+        "
+        >Feeling Lucky</span
+      >
     </div>
 
-    <div id="listOfRandomAnime">
-    </div>
-    
-    <span onClick="PreviousPage()" class="btn btn-light action-button"  style="background-color:#0c1c54;border:none;color:#fff;float:left;margin-left: 100px;">Previous Page</span>
+    <div id="listOfRandomAnime"></div>
+
+    <span
+      onClick="PreviousPage()"
+      class="btn btn-light action-button"
+      style="
+        background-color: #0c1c54;
+        border: none;
+        color: #fff;
+        float: left;
+        margin-left: 100px;
+      "
+      >Previous Page</span
+    >
     <span></span>
-    <span onClick="NextPage()" class="btn btn-light action-button"  style="background-color:#0c1c54;border:none;color:#fff;float:right;margin-right: 100px;">Next Page</span>
-   
-
-    
-
-
+    <span
+      onClick="NextPage()"
+      class="btn btn-light action-button"
+      style="
+        background-color: #0c1c54;
+        border: none;
+        color: #fff;
+        float: right;
+        margin-right: 100px;
+      "
+      >Next Page</span
+    >
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
@@ -176,6 +309,5 @@
     <script src="assets/js/setup.js"></script>
     <script src="assets/js/login.js"></script>
     <script src="assets/js/random.js"></script>
-</body>
-
+  </body>
 </html>
