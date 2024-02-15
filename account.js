@@ -3,10 +3,28 @@ var crypto = require("crypto");
 var logFile = require("./log.js");
 var credentialsPath = "./credentials.json";
 
+if (!fs.existsSync(credentials)) {
+  let defaultData = JSON.stringify([
+    {
+      username: "admin",
+      passwd:
+        "10388a133dada0caa5af6045d888c0ce3289a1fd851a3c89298cb2211a8a4f22",
+      watched: {},
+      bookmarked: [],
+      sponsor: "admin",
+      keys: [],
+      password:
+        "10388a133dada0caa5af6045d888c0ce3289a1fd851a3c89298cb2211a8a4f22",
+    },
+  ]);
+
+  fs.writeFileSync(credentialsPath, defaultData, { flag: "w" });
+}
+
 var credentials = JSON.parse(
   fs.readFileSync(credentialsPath, {
     encoding: "utf8",
-  }),
+  })
 );
 
 const expoTime = 86400000;
